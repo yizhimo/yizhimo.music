@@ -1,5 +1,5 @@
 // import React from 'react';
-// import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 // const HYDiscover = React.lazy(() => import("@/pages/discover"));
 // const HYRecommend = React.lazy(_ => import("../pages/discover/c-pages/recommend"));
@@ -14,8 +14,8 @@
 // const HYMine = React.lazy(_ => import("../pages/mine"));
 
 import HYDiscover from "@/pages/discover";
-// import HYRecommend from "../pages/discover/c-pages/recommend";
-// import HYRanking from "../pages/discover/c-pages/ranking";
+import HYRecommend from "../pages/discover/c-pages/recommend";
+import HYRanking from "../pages/discover/c-pages/ranking";
 // import HYSongs from "../pages/discover/c-pages/songs";
 // import HYDjradio from "../pages/discover/c-pages/djradio";
 // import HYArtist from "../pages/discover/c-pages/artist";
@@ -30,11 +30,30 @@ const routes = [
   {
     path: "/",
     exact: true,
-    component: HYDiscover
+    render: () => (
+      <Redirect to="/discover"/>
+    )
   },
   {
     path: "/discover",
-    component: HYDiscover
+    component: HYDiscover,
+    routes: [
+      {
+        path: "/discover",
+        exact: true,
+        render: () => (
+          <Redirect to="/discover/recommend"/>
+        )
+      },
+      {
+        path: "/discover/recommend",
+        component: HYRecommend
+      },
+      {
+        path: "/discover/ranking",
+        component: HYRanking
+      }
+    ]
   },
   {
     path: "/mine",

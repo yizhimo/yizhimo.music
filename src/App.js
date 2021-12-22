@@ -13,9 +13,7 @@ export default memo(function App() {
 
       <HashRouter>
         <HYAppHeader />
-
-          {renderRoutes(routes)}
-
+        {renderRoutes(routes)}
         <HYAppFooter />
         {/* <HYAppPlayerBar/> */}
       </HashRouter>
