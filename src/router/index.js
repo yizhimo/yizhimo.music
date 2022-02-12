@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from "react-router-dom";
 
+// 路由懒加载
 const HYDiscover = React.lazy(() => import("@/pages/discover"));
 const HYRecommend = React.lazy(_ => import("../pages/discover/c-pages/recommend"));
 const HYRanking = React.lazy(_ => import("../pages/discover/c-pages/ranking"));
@@ -22,7 +23,6 @@ const HYMine = React.lazy(_ => import("../pages/mine"));
 // import HYPlayer from "../pages/player";
 // import HYMine from "@/pages/mine";
 // import HYFriend from "@/pages/friend";
-
 
 const routes = [
   {
